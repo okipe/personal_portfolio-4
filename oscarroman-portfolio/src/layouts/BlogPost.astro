@@ -11,76 +11,243 @@ type Props = CollectionEntry<'blog'>['data'];
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="es">
 	<head>
 		<BaseHead title={title} description={description} />
-		<style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
-			}
-			.hero-image {
-				width: 100%;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
-			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
-			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-		</style>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 	</head>
 
-	<body>
+	<body class="bg-primary-dark">
 		<Header />
-		<main>
-			<article>
-				<div class="hero-image">
-					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
-				</div>
-				<div class="prose">
-					<div class="title">
-						<div class="date">
-							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
-						</div>
-						<h1>{title}</h1>
-						<hr />
+		
+		<main class="max-w-[1200px] mx-auto px-8 py-12">
+			<article class="max-w-4xl mx-auto">
+				
+				<!-- Hero Image -->
+				{heroImage && (
+					<div class="mb-8 rounded-2xl overflow-hidden">
+						<Image width={1020} height={510} src={heroImage} alt={title} class="w-full h-auto" />
 					</div>
+				)}
+				
+				<!-- Article Header -->
+				<header class="mb-12 text-center">
+					<div class="text-gray-400 mb-4">
+						<FormattedDate date={pubDate} />
+						{updatedDate && (
+							<span class="italic ml-4">
+								Actualizado: <FormattedDate date={updatedDate} />
+							</span>
+						)}
+					</div>
+					<h1 class="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
+						{title}
+					</h1>
+					<p class="text-xl text-gray-300 max-w-3xl mx-auto">
+						{description}
+					</p>
+				</header>
+				
+				<!-- Article Content -->
+				<div class="blog-content bg-card-dark rounded-2xl p-8 md:p-12 shadow-2xl">
 					<slot />
 				</div>
+				
+				<!-- Back to Blog -->
+				<div class="text-center mt-12">
+					<a 
+						href="/blog"
+						class="inline-flex items-center gap-2 text-accent-yellow hover:text-yellow-300 transition font-semibold text-lg"
+					>
+						<i class="bi bi-arrow-left"></i>
+						Volver al Blog
+					</a>
+				</div>
+				
 			</article>
 		</main>
+		
 		<Footer />
 	</body>
 </html>
+
+<style>
+	/* Blog Content Styles - Fondo oscuro, texto claro */
+	.blog-content {
+		font-size: 1.125rem;
+		line-height: 1.8;
+		color: #e5e7eb;
+	}
+	
+	/* Headings */
+	.blog-content :global(h2) {
+		font-size: 2rem;
+		font-weight: 700;
+		color: #ffffff;
+		margin-top: 2.5rem;
+		margin-bottom: 1.5rem;
+		line-height: 1.3;
+	}
+	
+	.blog-content :global(h3) {
+		font-size: 1.5rem;
+		font-weight: 700;
+		color: #f9fafb;
+		margin-top: 2rem;
+		margin-bottom: 1rem;
+		line-height: 1.4;
+	}
+	
+	.blog-content :global(h4) {
+		font-size: 1.25rem;
+		font-weight: 600;
+		color: #d1d5db;
+		margin-top: 1.5rem;
+		margin-bottom: 0.75rem;
+	}
+	
+	/* Paragraphs */
+	.blog-content :global(p) {
+		margin-bottom: 1.5rem;
+		color: #d1d5db;
+	}
+	
+	.blog-content :global(p:last-child) {
+		margin-bottom: 0;
+	}
+	
+	/* Strong/Bold */
+	.blog-content :global(strong) {
+		font-weight: 700;
+		color: #ffffff;
+	}
+	
+	/* Lists - FIXED */
+	.blog-content :global(ul) {
+		list-style-type: disc;
+		list-style-position: outside;
+		margin: 1.5rem 0;
+		padding-left: 2rem;
+	}
+	
+	.blog-content :global(ol) {
+		list-style-type: decimal;
+		list-style-position: outside;
+		margin: 1.5rem 0;
+		padding-left: 2rem;
+	}
+	
+	.blog-content :global(li) {
+		margin-bottom: 0.75rem;
+		color: #d1d5db;
+		display: list-item;
+	}
+	
+	.blog-content :global(ul > li::marker) {
+		color: #feef22;
+	}
+	
+	.blog-content :global(ol > li::marker) {
+		color: #feef22;
+		font-weight: 700;
+	}
+	
+	/* Nested lists */
+	.blog-content :global(li > ul),
+	.blog-content :global(li > ol) {
+		margin-top: 0.5rem;
+		margin-bottom: 0.5rem;
+	}
+	
+	/* Code blocks */
+	.blog-content :global(pre) {
+		background-color: #1f2937;
+		color: #e5e7eb;
+		padding: 1.5rem;
+		border-radius: 0.75rem;
+		overflow-x: auto;
+		margin: 1.5rem 0;
+		font-size: 0.95rem;
+		line-height: 1.6;
+		border: 1px solid #374151;
+	}
+	
+	.blog-content :global(code) {
+		background-color: #1f2937;
+		color: #fbbf24;
+		padding: 0.2rem 0.4rem;
+		border-radius: 0.25rem;
+		font-size: 0.95em;
+		font-family: 'Courier New', monospace;
+	}
+	
+	.blog-content :global(pre code) {
+		background-color: transparent;
+		color: #e5e7eb;
+		padding: 0;
+	}
+	
+	/* Blockquotes */
+	.blog-content :global(blockquote) {
+		border-left: 4px solid #feef22;
+		padding-left: 1.5rem;
+		margin: 1.5rem 0;
+		font-style: italic;
+		color: #9ca3af;
+	}
+	
+	.blog-content :global(blockquote p) {
+		margin-bottom: 0.5rem;
+	}
+	
+	/* Links */
+	.blog-content :global(a) {
+		color: #60a5fa;
+		text-decoration: underline;
+		font-weight: 500;
+		transition: color 0.2s;
+	}
+	
+	.blog-content :global(a:hover) {
+		color: #93c5fd;
+	}
+	
+	/* Horizontal Rule */
+	.blog-content :global(hr) {
+		border: none;
+		border-top: 2px solid #4b5563;
+		margin: 3rem 0;
+	}
+	
+	/* Images */
+	.blog-content :global(img) {
+		border-radius: 0.75rem;
+		margin: 1.5rem 0;
+		max-width: 100%;
+		height: auto;
+	}
+	
+	/* Tables */
+	.blog-content :global(table) {
+		width: 100%;
+		border-collapse: collapse;
+		margin: 1.5rem 0;
+	}
+	
+	.blog-content :global(th),
+	.blog-content :global(td) {
+		padding: 0.75rem;
+		border: 1px solid #4b5563;
+		text-align: left;
+	}
+	
+	.blog-content :global(th) {
+		background-color: #1f2937;
+		font-weight: 600;
+		color: #ffffff;
+	}
+	
+	.blog-content :global(td) {
+		color: #d1d5db;
+	}
+</style>

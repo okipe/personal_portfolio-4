@@ -13,102 +13,70 @@ const posts = (await getCollection('blog')).sort(
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			main {
-				width: 960px;
-			}
-			ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-			}
-			ul li {
-				width: calc(50% - 1rem);
-			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
-				text-align: center;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
-			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
-			}
-			ul li a {
-				display: block;
-			}
-			.title {
-				margin: 0;
-				color: rgb(var(--black));
-				line-height: 1;
-			}
-			.date {
-				margin: 0;
-				color: rgb(var(--gray));
-			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
-			}
-			ul a:hover img {
-				box-shadow: var(--box-shadow);
-			}
-			@media (max-width: 720px) {
-				ul {
-					gap: 0.5em;
-				}
-				ul li {
-					width: 100%;
-					text-align: center;
-				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
-				}
-			}
-		</style>
+		<BaseHead title={`Blog - ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 	</head>
-	<body>
+	<body class="bg-primary-dark text-white">
 		<Header />
-		<main>
-			<section>
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<a href={`/blog/${post.id}/`}>
-									{post.data.heroImage && (
-										<Image width={720} height={360} src={post.data.heroImage} alt="" />
-									)}
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
-								</a>
-							</li>
-						))
-					}
-				</ul>
-			</section>
+		
+		<main class="max-w-[1200px] mx-auto px-8 py-12">
+			
+			<!-- Blog Header -->
+			<div class="text-center mb-16">
+				<h1 class="text-4xl md:text-5xl font-bold mb-4">Blog</h1>
+				<p class="text-gray-300 text-lg max-w-2xl mx-auto">
+					Reflexiones sobre tecnología, infraestructura, EdTech y mi transición profesional
+				</p>
+			</div>
+			
+			<!-- Posts Grid -->
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+				{posts.map((post) => (
+					<article class="bg-card-dark rounded-2xl overflow-hidden transition-all hover:scale-105 hover:shadow-2xl">
+						<a href={`/blog/${post.id}/`} class="no-underline">
+							
+							<!-- Post Image -->
+							{post.data.heroImage && (
+								<div class="h-48 overflow-hidden">
+									<Image 
+										width={720} 
+										height={360} 
+										src={post.data.heroImage} 
+										alt={post.data.title}
+										class="w-full h-full object-cover"
+									/>
+								</div>
+							)}
+							
+							<!-- Post Content -->
+							<div class="p-6">
+								<div class="text-gray-400 text-sm mb-3">
+									<FormattedDate date={post.data.pubDate} />
+								</div>
+								
+								<h2 class="text-2xl font-bold text-white mb-3 leading-tight hover:text-accent-yellow transition">
+									{post.data.title}
+								</h2>
+								
+								<p class="text-gray-300 leading-relaxed">
+									{post.data.description}
+								</p>
+								
+								<div class="mt-4 inline-flex items-center gap-2 text-accent-yellow font-semibold">
+									Leer más
+									<i class="bi bi-arrow-right"></i>
+								</div>
+							</div>
+							
+						</a>
+					</article>
+				))}
+			</div>
+			
 		</main>
+		
 		<Footer />
 	</body>
 </html>

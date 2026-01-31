@@ -2,6 +2,8 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import SkillCard from '../components/SkillCard.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 ---
 
@@ -73,6 +75,233 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
             </div>
           </div>
           
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="proyectos" class="my-24">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4">Proyectos Destacados</h2>
+          <p class="text-gray-300 text-lg max-w-2xl mx-auto">
+            Implementaciones en infraestructura, desarrollo web y plataformas educativas
+          </p>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- Project 1: Moodle -->
+          <ProjectCard 
+            title="Plataforma Moodle en Producción"
+            description="Gestión técnica y soporte de plataforma LMS Moodle para cursos virtuales masivos. Administración de usuarios, contenidos y análisis de datos de participación."
+            tags={['Linux', 'MySQL', 'Moodle', 'PHP']}
+          />
+
+          <!-- Project 2: Efficace -->
+          <ProjectCard 
+            title="Efficace Laboral - Sitio Corporativo"
+            description="Desarrollo frontend de sitio web corporativo con HTML5, SCSS y Bootstrap. Diseño responsivo y optimizado para conversión."
+            tags={['HTML', 'SCSS', 'Bootstrap', 'JavaScript']}
+            link="https://www.behance.net/oki_pe"
+          />
+
+          <!-- Project 3: Streaming -->
+          <ProjectCard 
+            title="Infraestructura de Streaming"
+            description="Coordinación técnica y ejecución de +250 webinars durante pandemia COVID-19. Gestión de plataformas Zoom, StreamYard y OBS Studio."
+            tags={['Zoom', 'OBS', 'StreamYard', 'Event Management']}
+          />
+
+          <!-- Project 4: Impact -->
+          <ProjectCard 
+            title="Impact Startup - Webflow"
+            description="Diseño y desarrollo de sitio web para competencia educativa usando Webflow. Enfoque en UX/UI y optimización de conversión."
+            tags={['Webflow', 'UI/UX', 'No-code']}
+          />
+
+          <!-- Project 5: WordPress -->
+          <ProjectCard 
+            title="Human Perú - WordPress Multisite"
+            description="Implementación de sitio WordPress para organización de bienestar social. Customización de tema y optimización SEO."
+            tags={['WordPress', 'PHP', 'SEO', 'CPanel']}
+          />
+
+          <!-- Project 6: Cloud Lab -->
+          <ProjectCard 
+            title="Personal Cloud Lab"
+            description="Laboratorio personal de aprendizaje con VirtualBox y KVM. Práctica de administración de sistemas Linux y redes."
+            tags={['Linux', 'VirtualBox', 'KVM', 'Networking']}
+          />
+
+        </div>
+      </section>
+
+      <!-- About Me Section -->
+      <section id="sobre-mi" class="my-24">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4">Sobre mí</h2>
+          <p class="text-gray-300 text-lg max-w-3xl mx-auto">
+            De comunicador digital a ingeniero de sistemas: combinando experiencia en gestión pública 
+            con conocimientos técnicos para crear soluciones educativas innovadoras
+          </p>
+        </div>
+
+        <!-- Bio Content -->
+        <div class="max-w-4xl mx-auto mb-16">
+          <div class="bg-card-dark rounded-2xl p-8 md:p-12">
+            <div class="prose prose-lg prose-invert max-w-none">
+              <p class="text-gray-300 leading-relaxed mb-6 text-lg">
+                Soy <strong class="text-white">comunicador digital</strong> con más de <strong class="text-accent-yellow">8 años de experiencia</strong> en 
+                promoción de la innovación pública, educación y capacitación con tecnologías digitales. 
+                He trabajado en municipalidades como Miraflores y San Isidro, liderando programas de innovación 
+                y coordinando más de <strong class="text-accent-yellow">250 webinars</strong> durante la pandemia de COVID-19.
+              </p>
+              
+              <p class="text-gray-300 leading-relaxed mb-6 text-lg">
+                Mi curiosidad por la tecnología me llevó a estudiar <strong class="text-white">Ingeniería de Sistemas Computacionales</strong>, 
+                donde actualmente curso el 8° ciclo. Esta formación me permite integrar mi experiencia en comunicación 
+                y gestión con conocimientos técnicos sólidos en <strong class="text-accent-yellow">infraestructura, desarrollo web y plataformas educativas</strong>.
+              </p>
+              
+              <p class="text-gray-300 leading-relaxed text-lg">
+                Hoy me especializo en <strong class="text-white">infraestructura de sistemas, cloud computing y EdTech</strong>, 
+                buscando desarrollarme en áreas como inteligencia artificial, DevOps y administración de sistemas Linux. 
+                Mi objetivo es crear soluciones educativas innovadoras y escalables que aprovechen lo mejor de la tecnología.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skills Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          
+          <!-- Skill 1: Infrastructure -->
+          <SkillCard 
+            title="Infraestructura & Sistemas"
+            icon="hdd-rack"
+            skills={[
+              'Linux (Ubuntu, Bash)',
+              'MySQL / Databases',
+              'VirtualBox / KVM',
+              'Redes informáticas',
+              'CPanel'
+            ]}
+          />
+
+          <!-- Skill 2: Cloud & DevOps -->
+          <SkillCard 
+            title="Cloud & DevOps"
+            icon="cloud"
+            skills={[
+              'Git / GitHub',
+              'CI/CD pipelines',
+              'Docker (aprendiendo)',
+              'Bash scripting',
+              'Deployment automation'
+            ]}
+          />
+
+          <!-- Skill 3: Development -->
+          <SkillCard 
+            title="Development"
+            icon="code-slash"
+            skills={[
+              'HTML, CSS, SCSS',
+              'JavaScript, TypeScript',
+              'Angular, Spring Boot',
+              'WordPress, Webflow',
+              'Bootstrap, Tailwind'
+            ]}
+          />
+
+          <!-- Skill 4: EdTech -->
+          <SkillCard 
+            title="EdTech"
+            icon="book"
+            skills={[
+              'Moodle (producción)',
+              'Thinkific',
+              'LMS Design',
+              'Instructional Design',
+              'Technical Training'
+            ]}
+          />
+
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contacto" class="my-24">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4">Contacto</h2>
+          <p class="text-gray-300 text-lg max-w-2xl mx-auto">
+            ¿Tienes un proyecto en mente? ¿Buscas colaborar en infraestructura o EdTech? 
+            Me encantaría escucharte
+          </p>
+        </div>
+
+        <!-- Contact Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          
+          <!-- Email -->
+          <a 
+            href="mailto:oscarroman.pe@gmail.com"
+            class="contact-card bg-card-dark rounded-2xl p-8 text-center transition-all hover:scale-105 hover:shadow-2xl no-underline group"
+          >
+            <div class="text-accent-yellow text-5xl mb-4 group-hover:scale-110 transition">
+              <i class="bi bi-envelope"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2 text-white">Email</h3>
+            <p class="text-gray-300">oscarroman.pe@gmail.com</p>
+          </a>
+
+          <!-- LinkedIn -->
+          <a 
+            href="https://www.linkedin.com/in/oscarroman1/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-card bg-card-dark rounded-2xl p-8 text-center transition-all hover:scale-105 hover:shadow-2xl no-underline group"
+          >
+            <div class="text-accent-yellow text-5xl mb-4 group-hover:scale-110 transition">
+              <i class="bi bi-linkedin"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2 text-white">LinkedIn</h3>
+            <p class="text-gray-300">@oscarroman1</p>
+          </a>
+
+          <!-- GitHub -->
+          <a 
+            href="https://github.com/okipe/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-card bg-card-dark rounded-2xl p-8 text-center transition-all hover:scale-105 hover:shadow-2xl no-underline group"
+          >
+            <div class="text-accent-yellow text-5xl mb-4 group-hover:scale-110 transition">
+              <i class="bi bi-github"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2 text-white">GitHub</h3>
+            <p class="text-gray-300">@okipe</p>
+          </a>
+
+        </div>
+
+        <!-- CTA -->
+        <div class="text-center mt-16">
+          <p class="text-gray-300 text-lg mb-8">
+            También puedes revisar mi portafolio de diseño en Behance
+          </p>
+          <a 
+            href="https://www.behance.net/oki_pe"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 bg-accent-yellow text-black font-bold py-3 px-8 rounded-2xl no-underline hover:bg-yellow-400 transition"
+          >
+            <i class="bi bi-behance"></i>
+            Ver Portafolio en Behance
+          </a>
         </div>
       </section>
       

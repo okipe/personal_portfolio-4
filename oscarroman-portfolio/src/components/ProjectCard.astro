@@ -1,0 +1,52 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  tags: string[];
+  image?: string;
+  link?: string;
+}
+
+const { title, description, tags, image, link } = Astro.props;
+---
+
+<article class="project-card bg-card-dark rounded-2xl overflow-hidden transition-all hover:scale-105 hover:shadow-2xl">
+  <!-- Image -->
+  <div class="project-image h-48 bg-gradient-to-br from-accent-yellow/10 to-blue-500/10 flex items-center justify-center">
+    {image ? (
+      <img src={image} alt={title} class="w-full h-full object-cover" />
+    ) : (
+      <div class="text-gray-500 text-6xl">
+        <i class="bi bi-code-square"></i>
+      </div>
+    )}
+  </div>
+  
+  <!-- Content -->
+  <div class="p-6">
+    <h3 class="text-2xl font-bold mb-3 text-white">{title}</h3>
+    <p class="text-gray-300 mb-4 leading-relaxed">{description}</p>
+    
+    <!-- Tags -->
+    <div class="flex flex-wrap gap-2 mb-4">
+      {tags.map(tag => (
+        <span class="px-3 py-1 bg-primary-dark text-accent-yellow text-sm rounded-full">
+          {tag}
+        </span>
+      ))}
+    </div>
+    
+    <!-- Link (optional) -->
+    {link && (
+      <a 
+        href={link} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 text-accent-yellow hover:text-yellow-300 transition font-semibold"
+      >
+        Ver proyecto
+        <i class="bi bi-arrow-right"></i>
+      </a>
+    )}
+  </div>
+</article>
