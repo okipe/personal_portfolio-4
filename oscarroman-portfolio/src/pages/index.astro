@@ -6,6 +6,14 @@ import ProjectCard from '../components/ProjectCard.astro';
 import SkillCard from '../components/SkillCard.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import heroImage from '../assets/hero-img-slider.svg';
+
+import moodleImage from '../assets/projects/moodle-proyecto.webp';
+import efficaceImage from '../assets/projects/efficace-proyecto.webp';
+import streamingImage from '../assets/projects/streaming-proyecto.webp';
+import wordpressImage from '../assets/projects/wordpress-proyecto.webp';
+import cloudLabImage from '../assets/projects/cloud-lab-proyecto.webp';
+import impactImage from '../assets/projects/impact-proyecto.webp';
+
 ---
 
 <!doctype html>
@@ -102,7 +110,8 @@ import heroImage from '../assets/hero-img-slider.svg';
           <ProjectCard 
             title="Plataforma Moodle de Derechos Humanos"
             description="Gestión técnica y soporte de plataforma LMS Moodle para cursos virtuales para el público general. Administración de usuarios, contenidos y análisis de datos de participación."
-            tags={['Linux', 'MySQL', 'Moodle', 'PHP']}
+            tags={['Linux', 'MySQL', 'Moodle']}
+            image={moodleImage}
           />
 
           <!-- Project 2: Efficace -->
@@ -111,6 +120,7 @@ import heroImage from '../assets/hero-img-slider.svg';
             description="Desarrollo frontend de sitio web corporativo con HTML5, SCSS y Bootstrap. Diseño responsivo y optimizado para conversión."
             tags={['HTML', 'SCSS', 'Bootstrap', 'JavaScript']}
             link="https://github.com/okipe/website-efficace-4-bootstrap"
+            image={efficaceImage}
           />
 
           <!-- Project 3: Streaming -->
@@ -118,6 +128,7 @@ import heroImage from '../assets/hero-img-slider.svg';
             title="Ejecución de Streaming para redes sociales"
             description="Coordinación técnica y ejecución de +250 webinars durante pandemia COVID-19. Gestión de plataformas Zoom, StreamYard y OBS Studio."
             tags={['Zoom', 'OBS', 'StreamYard', 'Event Management']}
+            image={streamingImage}
           />
 
           <!-- Project 5: WordPress -->
@@ -125,6 +136,7 @@ import heroImage from '../assets/hero-img-slider.svg';
             title="Human Perú - WordPress Multisite"
             description="Implementación de sitio WordPress para organización de bienestar social. Customización de tema y optimización SEO."
             tags={['WordPress', 'PHP', 'SEO', 'CPanel']}
+            image={wordpressImage}
           />
 
           <!-- Project 6: Cloud Lab -->
@@ -132,6 +144,7 @@ import heroImage from '../assets/hero-img-slider.svg';
             title="Personal Cloud Lab"
             description="Laboratorio personal de aprendizaje con VirtualBox y KVM. Práctica de administración de sistemas Linux y redes."
             tags={['Linux', 'VirtualBox', 'KVM', 'Networking']}
+            image={cloudLabImage}
           />
 
           <!-- Project 4: Impact -->
@@ -139,6 +152,7 @@ import heroImage from '../assets/hero-img-slider.svg';
               title="ISC 2024 - Web de concurso de startups"
               description="Diseño y desarrollo de sitio web para competencia de emprendimientos usando Webflow. Enfoque en UX/UI y optimización de conversión."
               tags={['Webflow', 'UI/UX', 'No-code']}
+              image={impactImage}
               link="https://www.behance.net/gallery/206918725/WebFlow-Website-for-Impact-Startup-Competition"
             />
 
