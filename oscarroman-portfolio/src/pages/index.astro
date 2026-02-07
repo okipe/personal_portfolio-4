@@ -7,6 +7,7 @@ import SkillCard from '../components/SkillCard.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import heroImage from '../assets/hero-img-slider.svg';
 
+// ✅ Importaciones de imágenes de proyectos (sin .src)
 import moodleImage from '../assets/projects/moodle-proyecto.webp';
 import efficaceImage from '../assets/projects/efficace-proyecto.webp';
 import streamingImage from '../assets/projects/streaming-proyecto.webp';
@@ -29,69 +30,69 @@ import impactImage from '../assets/projects/impact-proyecto.webp';
       
       <!-- Hero Section -->
       <section class="hero my-20">
-  <div class="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-8 items-center">
-    
-    <!-- Left Column - Texto -->
-    <div class="hero__left text-center md:text-left">
-      <h1 class="text-5xl lg:text-6xl font-bold mb-5 leading-tight">
-        Hola, soy<br/>
-        <span class="text-white">Oscar Román</span>
-      </h1>
-      
-      <p class="text-2xl lg:text-3xl mb-12 font-medium">
-        Technology Specialist
-      </p>
-      
-      <p class="text-lg text-gray-300 mb-8">
-        Infraestructura · Web · Cloud
-      </p>
-      
-      <div class="flex flex-col sm:flex-row items-center justify-center md:justify-start md:items-start gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-8 items-center">
+          
+          <!-- Left Column - Texto -->
+          <div class="hero__left text-center md:text-left">
+            <h1 class="text-5xl lg:text-6xl font-bold mb-5 leading-tight">
+              Hola, soy<br/>
+              <span class="text-white">Oscar Román</span>
+            </h1>
+            
+            <p class="text-2xl lg:text-3xl mb-12 font-medium">
+              Technology Specialist
+            </p>
+            
+            <p class="text-lg text-gray-300 mb-8">
+              Infraestructura · Web · Cloud
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center md:justify-start md:items-start gap-6">
 
-        <!-- Download CV Button -->
-        <a 
-          href="/cv-oscar-roman-2026.pdf" 
-          class="bg-accent-yellow text-black font-bold py-3 px-6 rounded-2xl no-underline hover:bg-yellow-400 transition inline-block"
-          target="_blank"
-        >
-          Descargar CV
-        </a>
-        
-        <!-- Social Icons -->
-        <div class="flex gap-5">
-          <a href="https://github.com/okipe/" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 16 16" class="w-8 h-8 fill-white hover:fill-accent-yellow transition">
-              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
-            </svg>
-          </a>
-          <a href="https://www.linkedin.com/in/oscarroman1/" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" class="w-8 h-8 fill-white hover:fill-accent-yellow transition">
-              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
-            </svg>
-          </a>
-          <a href="https://www.behance.net/oki_pe" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" class="w-8 h-8 fill-white hover:fill-accent-yellow transition">
-              <path d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14h-8.027c.13 3.211 3.483 3.312 4.588 2.029h3.168zm-7.686-4h4.965c-.105-1.547-1.136-2.219-2.477-2.219-1.466 0-2.277.768-2.488 2.219zm-9.574 6.988h-6.466v-14.967h6.953c5.476.081 5.58 5.444 2.72 6.906 3.461 1.26 3.577 8.061-3.207 8.061zm-3.466-8.988h3.584c2.508 0 2.906-3-.312-3h-3.272v3zm3.391 3h-3.391v3.016h3.341c3.055 0 2.868-3.016.05-3.016z"></path>
-            </svg>
-          </a>
+              <!-- Download CV Button -->
+              <a 
+                href="/cv-oscar-roman-2026.pdf" 
+                class="bg-accent-yellow text-black font-bold py-3 px-6 rounded-2xl no-underline hover:bg-yellow-400 transition inline-block"
+                target="_blank"
+              >
+                Descargar CV
+              </a>
+              
+              <!-- Social Icons -->
+              <div class="flex gap-5">
+                <a href="https://github.com/okipe/" target="_blank" rel="noopener noreferrer">
+                  <svg viewBox="0 0 16 16" class="w-8 h-8 fill-white hover:fill-accent-yellow transition">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                  </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/oscarroman1/" target="_blank" rel="noopener noreferrer">
+                  <svg viewBox="0 0 24 24" class="w-8 h-8 fill-white hover:fill-accent-yellow transition">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+                  </svg>
+                </a>
+                <a href="https://www.behance.net/oki_pe" target="_blank" rel="noopener noreferrer">
+                  <svg viewBox="0 0 24 24" class="w-8 h-8 fill-white hover:fill-accent-yellow transition">
+                    <path d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14h-8.027c.13 3.211 3.483 3.312 4.588 2.029h3.168zm-7.686-4h4.965c-.105-1.547-1.136-2.219-2.477-2.219-1.466 0-2.277.768-2.488 2.219zm-9.574 6.988h-6.466v-14.967h6.953c5.476.081 5.58 5.444 2.72 6.906 3.461 1.26 3.577 8.061-3.207 8.061zm-3.466-8.988h3.584c2.508 0 2.906-3-.312-3h-3.272v3zm3.391 3h-3.391v3.016h3.341c3.055 0 2.868-3.016.05-3.016z"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Right Column - Imagen hero (OCULTA en móvil) -->
+          <div class="hero__right hidden md:flex justify-center items-center">
+            <img 
+              src={heroImage.src} 
+              alt="Oscar Román - Infrastructure & Cloud Engineer trabajando con terminal Linux, Docker y automatización DevOps" 
+              class="w-full h-auto rounded-2xl"
+              width="920"
+              height="585"
+              loading="eager"
+            />
+          </div>
+          
         </div>
-      </div>
-    </div>
-    
-    <!-- Right Column - Imagen hero (OCULTA en móvil) -->
-    <div class="hero__right hidden md:flex justify-center items-center">
-      <img 
-        src={heroImage.src} 
-        alt="Oscar Román - Infrastructure & Cloud Engineer trabajando con terminal Linux, Docker y automatización DevOps" 
-        class="w-full h-auto rounded-2xl"
-        width="920"
-        height="585"
-        loading="eager"
-      />
-    </div>
-    
-  </div>
-</section>
+      </section>
 
       <!-- Projects Section -->
       <section id="proyectos" class="my-24">
@@ -131,7 +132,7 @@ import impactImage from '../assets/projects/impact-proyecto.webp';
             image={streamingImage}
           />
 
-          <!-- Project 5: WordPress -->
+          <!-- Project 4: WordPress -->
           <ProjectCard 
             title="Human Perú - WordPress Multisite"
             description="Implementación de sitio WordPress para organización de bienestar social. Customización de tema y optimización SEO."
@@ -139,7 +140,7 @@ import impactImage from '../assets/projects/impact-proyecto.webp';
             image={wordpressImage}
           />
 
-          <!-- Project 6: Cloud Lab -->
+          <!-- Project 5: Cloud Lab -->
           <ProjectCard 
             title="Personal Cloud Lab"
             description="Laboratorio personal de aprendizaje con VirtualBox y KVM. Práctica de administración de sistemas Linux y redes."
@@ -147,14 +148,14 @@ import impactImage from '../assets/projects/impact-proyecto.webp';
             image={cloudLabImage}
           />
 
-          <!-- Project 4: Impact -->
-            <ProjectCard 
-              title="ISC 2024 - Web de concurso de startups"
-              description="Diseño y desarrollo de sitio web para competencia de emprendimientos usando Webflow. Enfoque en UX/UI y optimización de conversión."
-              tags={['Webflow', 'UI/UX', 'No-code']}
-              image={impactImage}
-              link="https://www.behance.net/gallery/206918725/WebFlow-Website-for-Impact-Startup-Competition"
-            />
+          <!-- Project 6: Impact -->
+          <ProjectCard 
+            title="ISC 2024 - Web de concurso de startups"
+            description="Diseño y desarrollo de sitio web para competencia de emprendimientos usando Webflow. Enfoque en UX/UI y optimización de conversión."
+            tags={['Webflow', 'UI/UX', 'No-code']}
+            image={impactImage}
+            link="https://www.behance.net/gallery/206918725/WebFlow-Website-for-Impact-Startup-Competition"
+          />
 
         </div>
 

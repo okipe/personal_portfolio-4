@@ -1,52 +1,62 @@
 ---
+import { Image } from 'astro:assets';
+
 interface Props {
   title: string;
   description: string;
   tags: string[];
-  image?: string;
   link?: string;
+  image?: ImageMetadata;  // ✅ Ahora acepta ImageMetadata completo
 }
 
-const { title, description, tags, image, link } = Astro.props;
+const { title, description, tags, link, image } = Astro.props;
 ---
 
-<article class="project-card bg-card-dark rounded-2xl overflow-hidden transition-all hover:scale-105 hover:shadow-2xl">
-  <!-- Image -->
-  <div class="project-image h-48 bg-gradient-to-br from-accent-yellow/10 to-blue-500/10 flex items-center justify-center">
-    {image ? (
-      <img src={image} alt={title} class="w-full h-full object-cover" />
-    ) : (
-      <div class="text-gray-500 text-6xl">
-        <i class="bi bi-code-square"></i>
-      </div>
-    )}
-  </div>
+<div class="project-card bg-card-dark rounded-2xl overflow-hidden transition-all hover:scale-105 hover:shadow-2xl">
   
-  <!-- Content -->
+  <!-- Project Image -->
+  {image && (
+    <div class="project-image h-48 overflow-hidden">
+      <Image 
+        src={image}
+        alt={`Screenshot del proyecto ${title}`}
+        width={600}
+        height={400}
+        class="w-full h-full object-cover transition-transform hover:scale-110"
+        loading="lazy"
+        format="webp"
+        quality={85}
+      />
+    </div>
+  )}
+  
+  <!-- Project Content -->
   <div class="p-6">
     <h3 class="text-2xl font-bold mb-3 text-white">{title}</h3>
     <p class="text-gray-300 mb-4 leading-relaxed">{description}</p>
     
     <!-- Tags -->
     <div class="flex flex-wrap gap-2 mb-4">
-      {tags.map(tag => (
-        <span class="px-3 py-1 bg-primary-dark text-accent-yellow text-sm rounded-full">
+      {tags.map((tag) => (
+        <span class="bg-primary-dark text-accent-yellow text-sm px-3 py-1 rounded-full font-medium">
           {tag}
         </span>
       ))}
     </div>
     
-    <!-- Link (optional) -->
+    <!-- Link (if exists) -->
     {link && (
       <a 
-        href={link} 
-        target="_blank" 
+        href={link}
+        target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 text-accent-yellow hover:text-yellow-300 transition font-semibold"
+        class="inline-flex items-center gap-2 text-accent-yellow font-bold hover:underline transition"
       >
         Ver proyecto
-        <i class="bi bi-arrow-right"></i>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+        </svg>
       </a>
     )}
   </div>
-</article>
+</div>
