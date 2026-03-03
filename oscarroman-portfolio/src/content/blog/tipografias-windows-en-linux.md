@@ -7,7 +7,11 @@ heroImage: "../../assets/blog-placeholder-1.jpg"
 
 Las suites ofimáticas como LibreOffice, OnlyOffice y WPS Office necesitan las tipografías originales de Microsoft para mostrar correctamente documentos creados en Word, Excel y PowerPoint. Sin estas fuentes, el sistema usa sustituciones que alteran el formato, la paginación y la apariencia general de los documentos.
 
-Por citar algunos ejemplos, los textos con Emoji en OnlyOffice se ven mal si es que no se tiene la tipografía Segoe Emoji. Similar es el caso de la tipografía Aptos, el cual es reemplazada de manera temporal con tipografías que no son "muy compatibles". Además, muchos sitios web de Microsoft (Outlook Web, Teams, SharePoint) usan Segoe UI como fuente principal, y sin ella instalada se ven con tipografías genéricas y pixeladas.
+Por citar algunos ejemplos, los textos con Emoji en OnlyOffice se ven mal si es que no se tiene la tipografía Segoe UI Emoji. Similar es el caso de la tipografía Aptos, el cual es reemplazada de manera temporal con tipografías que no son "muy compatibles". Además, muchos sitios web de Microsoft (Outlook Web, Teams, SharePoint) usan Segoe UI como fuente principal, y sin ella instalada se ven con tipografías genéricas y pixeladas.
+
+![OnlyOffice en un Ubuntu 24.04 que no tiene tipografía Segoe UI Emoji. Los emojis de las últimas versiones de Unicode aparece como cuadrados](../../assets/blog/tipografias-windows-en-linux/only-office-without-segoe-emoji.webp)
+
+_OnlyOffice en un Ubuntu 24.04 que no tiene tipografía Segoe UI Emoji. Los emojis de las últimas versiones de Unicode aparece como cuadrados_
 
 El paquete `ttf-mscorefonts-installer` de algunas distribuciones Linux como Ubuntu instala las Core Fonts for the Web (Arial, Times New Roman, Courier New, etc.) en su versión del año 2002, pero **no incluye** las fuentes ClearType (Calibri, Cambria, etc.), ni Segoe UI, ni Aptos, ni ninguna fuente posterior a 2002. AlmaLinux y otras distros basadas en RHEL no tienen un equivalente directo en sus repositorios, lo que fuerza a buscar en repositorios de terceros. Por eso la extracción manual es necesaria.
 
