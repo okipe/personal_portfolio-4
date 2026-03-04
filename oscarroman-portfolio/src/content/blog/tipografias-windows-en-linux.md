@@ -674,11 +674,11 @@ Ejecutar `fc-cache -fv` y reiniciar la aplicación. Verificar con `fc-list | gre
 **Fuentes duplicadas (instaladas en dos ubicaciones):**
 No causa problemas. `fontconfig` identifica las fuentes por sus metadatos internos, no por la ruta ni el nombre del archivo. Si hay duplicados, simplemente usa una y la otra queda ignorada.
 
-![LibreOffice con la tipografía Aptos de Microsoft Office 2024. Ahora se ve correctamente.](../../assets/blog/tipografias-windows-en-linux/only-office-without-segoe-emoji.webp)
+![LibreOffice con la tipografía Aptos de Microsoft Office 2024. Ahora se ve correctamente.](../../assets/blog/tipografias-windows-en-linux/libreoffice-with-aptos.webp)
 
 _LibreOffice con la tipografía Aptos de Microsoft Office 2024. Ahora se ve correctamente._
 
-![OnlyOffice en un Ubuntu 24.04 que que si tiene tipografía Segoe UI Emoji. Los emojis funcionan aunque salen como monocromáticos](../../assets/blog/tipografias-windows-en-linux/only-office-without-segoe-emoji.webp)
+![OnlyOffice en un Ubuntu 24.04 que que si tiene tipografía Segoe UI Emoji. Los emojis funcionan aunque salen como monocromáticos](../../assets/blog/tipografias-windows-en-linux/only-office-with-segoe-emoji.webp)
 
 _OnlyOffice en un Ubuntu 24.04 que que si tiene tipografía Segoe UI Emoji. Los emojis funcionan aunque salen como monocromáticos ya que no puede leer la información de colores degradados._
 
