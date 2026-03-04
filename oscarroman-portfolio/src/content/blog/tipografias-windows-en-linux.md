@@ -2,7 +2,7 @@
 title: "Cómo tener las tipografías Windows en Linux"
 description: "Guía para extraer, organizar e instalar las tipografías de Microsoft Windows 11 24H2 y Microsoft Office 2024 en distribuciones Linux (Ubuntu 24.04/22.04, AlmaLinux 9, Fedora, Debian, etc.)."
 pubDate: "Mar 3 2026"
-heroImage: "../../assets/blog-placeholder-1.jpg"
+heroImage: "../../assets/blog/tipografias-windows-en-linux/only-office-without-segoe-emoji.webp"
 ---
 
 Las suites ofimáticas en Linux como LibreOffice, OnlyOffice y WPS Office  necesitan las tipografías originales de Microsoft para mostrar correctamente documentos creados en Word, Excel y PowerPoint. Sin estas fuentes, el sistema usa sustituciones que alteran el formato, la paginación y la apariencia general de los documentos.
