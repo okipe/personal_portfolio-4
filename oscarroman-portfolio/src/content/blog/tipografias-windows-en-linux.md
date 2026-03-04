@@ -680,7 +680,7 @@ _LibreOffice con la tipografía Aptos de Microsoft Office 2024. Ahora se ve corr
 
 ![OnlyOffice en un Ubuntu 24.04 que que si tiene tipografía Segoe UI Emoji. Los emojis funcionan aunque salen como monocromáticos](../../assets/blog/tipografias-windows-en-linux/only-office-without-segoe-emoji.webp)
 
-_OnlyOffice en un Ubuntu 24.04 que que si tiene tipografía Segoe UI Emoji. Los emojis funcionan aunque salen como monocromáticos ya que no puede leer la información de colores degradados_
+_OnlyOffice en un Ubuntu 24.04 que que si tiene tipografía Segoe UI Emoji. Los emojis funcionan aunque salen como monocromáticos ya que no puede leer la información de colores degradados._
 
 ---
 
