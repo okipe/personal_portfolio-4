@@ -11,13 +11,29 @@ Por citar algunos ejemplos, los textos con Emoji en OnlyOffice se ven mal si es 
 
 ![OnlyOffice en un Ubuntu 24.04 que no tiene tipografía Segoe UI Emoji. Los emojis de las últimas versiones de Unicode aparece como cuadrados](../../assets/blog/tipografias-windows-en-linux/only-office-without-segoe-emoji.webp)
 
-_OnlyOffice en un Ubuntu 24.04 que no tiene tipografía Segoe UI Emoji. Los emojis de las últimas versiones de Unicode aparece como cuadrados. Eso no sucede con LibreOffice, pues para los emojis usa la tipografia Noto Emoji de Google_
+_OnlyOffice en un Ubuntu 24.04 que no tiene tipografía Segoe UI Emoji. Los emojis de las últimas versiones de Unicode aparece como cuadrados. Eso no sucede con LibreOffice, pues para los emojis usa la tipografia Noto Emoji de Google._
 
 El paquete `ttf-mscorefonts-installer` de algunas distribuciones Linux como Ubuntu instala las Core Fonts for the Web (Arial, Times New Roman, Courier New, etc.) en su versión del año 2002, pero **no incluye** las fuentes ClearType (Calibri, Cambria, etc.), ni Segoe UI, ni Aptos, ni ninguna fuente posterior a 2002. AlmaLinux y otras distros basadas en RHEL no tienen un equivalente directo en sus repositorios, lo que fuerza a buscar en repositorios de terceros. Por eso la extracción manual es necesaria.
 
 ## Contexto del procedimiento
 
 Este procedimiento fue realizado en una máquina con dual-boot Ubuntu 24.04 + Windows 11 24H2, donde Windows está instalado en un SSD secundario (`/dev/sda1`). Las fuentes de Office 2024 (familia Aptos y extras) se extrajeron desde una máquina virtual de Windows 10 22H2 con Office 2024, gestionada con Libvirt/QEMU y usada a través de WinApps.
+
+## Nota importante sobre los emojis
+
+La tipografía Segoe UI Emoji de Windows 10 tiene menos caracteres que su equivalente de Windows 11, al carecer de soporte de las últimas versiones de Unicode. Además, los colores de sus caracteres son planas, al contrario que Windows 11, los cuales tienen degradados que dan ilusión 3D.
+
+![Diferencia del peso entre las tipografías de Segoe UI Emoji de Windows 10 y el de Windows 11](../../assets/blog/tipografias-windows-en-linux/comparison-windows-11-windows-10-segoe-emoji-font.webp)
+
+_Diferencia del peso entre las tipografías de Segoe UI Emoji de Windows 10 y el de Windows 11._
+
+Ello se muestra cuando intentas abrir el documento de control, que contiene los Emoji versión 14, en un Office 2024 con Windows 10. La mitad de los emojis son reemplazados como cuadrados. Ello se debe a que que Microsoft reservó estas actualizaciones para Windows 11
+
+Para evitar ese problema, Segoe UI Emoji también deberá ser actualizado en Windows 10, especialmente si utilizas Winapps para usar Office en Linux.
+
+![Microsoft Word 2024 con texto con Emojis versión 14 y 15 en Windows 10.](../../assets/blog/tipografias-windows-en-linux/comparison-windows-11-windows-10-segoe-emoji-font.webp)
+
+_Microsoft Word 2024 con texto con Emojis versión 14 y 15 en Windows 10._
 
 ## Resumen del proceso
 
@@ -28,6 +44,7 @@ Este procedimiento fue realizado en una máquina con dual-boot Ubuntu 24.04 + Wi
 4. Extraer las fuentes de Office 2024 desde la VM (Aptos y extras)
 5. Renombrar las cloud fonts de Office (nombres numéricos → nombres legibles)
 6. Instalar las fuentes en Linux
+7. Extra: Actualizar Segoe UI Emoji en Windows 10.
 
 ## Estructura final de carpetas
 
@@ -208,13 +225,17 @@ shutdown /s /f /t 0
 
 Aun después de desactivar Fast Startup, es posible que la partición NTFS esté marcada como "sucia" (dirty) por un apagado previo que no fue limpio. En ese caso, al intentar montar desde Linux, aparecerá el mismo error genérico en el explorador de archivos.
 
+![Error del navegador de archivos al abrir una partición de sistema de Windows 11. A pesar de haber desactivado Fast Startup, había un problema que impedía abrir el archivo.](../../assets/blog/tipografias-windows-en-linux/error-mount-blocked-windows-partition.webp)
+
+_Error del navegador de archivos al abrir una partición de sistema de Windows 11. A pesar de haber desactivado Fast Startup, había un problema que impedía abrir el archivo._
+
 Para diagnosticar, ejecutar desde Linux:
 
 ```bash
 sudo dmesg | grep ntfs3
 ```
 
-Si aparece el mensaje `ntfs3(sda1): volume is dirty and "force" flag is not set!`, la solución es ejecutar `chkdsk` desde Windows.
+Si aparece el mensaje `ntfs3(sda1): volume is dirty and "force" flag is not set!`, la solución es ejecutar `chkdsk` desde una consola de CMD en Windows.
 
 Arrancar Windows y abrir **CMD como Administrador**:
 
@@ -681,6 +702,31 @@ _LibreOffice con la tipografía Aptos de Microsoft Office 2024. Ahora se ve corr
 ![OnlyOffice en un Ubuntu 24.04 que que si tiene tipografía Segoe UI Emoji. Los emojis funcionan aunque salen como monocromáticos](../../assets/blog/tipografias-windows-en-linux/only-office-with-segoe-emoji.webp)
 
 _OnlyOffice en un Ubuntu 24.04 que que si tiene tipografía Segoe UI Emoji. Los emojis funcionan aunque salen como monocromáticos ya que no puede leer la información de colores degradados._
+
+## Paso 8: Extra: Instalar las fuentes en Linux
+
+Word 2024 tiene soporte nativo total para el formato COLRv1, las secuencias ZWJ (el "pegamento" de los emojis) y el estándar Unicode más reciente. Por lo tanto, si actualizamos la tipografía Segoe UI Emoji, se verán con todos los colores y degradados.
+
+A diferencia de Ubuntu, donde puedes simplemente copiar el archivo a la carpeta `~/.local/share/fonts`, Windows 10 considera a `seguiemj.ttf` como un archivo crítico del sistema. Si se intenta arrastrar la fuente de Windows 11 a la carpeta `C:\Windows\Fonts`, el sistema dirá que el archivo ya existe y no dejará sobrescribirlo, incluso si con privilegios de Administrador. Para reemplazarlo, se tendrá que quitarle la propiedad al sistema operativo usando la consola de comandos de Windows (CMD).
+
+Guarda tu archivo seguiemj.ttf (el de 12.4 MB de Windows 11) en una ruta accesible, por ejemplo, directamente en C:\
+
+Abre el Símbolo del sistema (CMD) como Administrador.
+
+Ejecuta estos comandos uno por uno para tomar posesión del archivo original, darle permisos a tu usuario, renombrar el viejo y copiar el nuevo:
+
+```cmd
+takeown /f C:\Windows\Fonts\seguiemj.ttf
+icacls C:\Windows\Fonts\seguiemj.ttf /grant administrators:F
+ren C:\Windows\Fonts\seguiemj.ttf seguiemj_viejo.ttf
+copy C:\seguiemj.ttf C:\Windows\Fonts\
+```
+
+Nota: Si tu Windows 10 está en español, cambia administrators:F por administradores:F.
+
+![Office 2024 con Windows 10 con la tipografía Segoe UI Emoji actualizada de Windows 11](../../assets/blog/tipografias-windows-en-linux/only-office-with-segoe-emoji.webp)
+
+_Office 2024 con Windows 10 con la tipografía Segoe UI Emoji actualizada de Windows 11._
 
 ---
 
