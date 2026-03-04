@@ -11,7 +11,7 @@ Por citar algunos ejemplos, los textos con Emoji en OnlyOffice se ven mal si es 
 
 ![OnlyOffice en un Ubuntu 24.04 que no tiene tipografía Segoe UI Emoji. Los emojis de las últimas versiones de Unicode aparece como cuadrados](../../assets/blog/tipografias-windows-en-linux/only-office-without-segoe-emoji.webp)
 
-_OnlyOffice en un Ubuntu 24.04 que no tiene tipografía Segoe UI Emoji. Los emojis de las últimas versiones de Unicode aparece como cuadrados_
+_OnlyOffice en un Ubuntu 24.04 que no tiene tipografía Segoe UI Emoji. Los emojis de las últimas versiones de Unicode aparece como cuadrados. Eso no sucede con LibreOffice, pues para los emojis usa la tipografia Noto Emoji de Google_
 
 El paquete `ttf-mscorefonts-installer` de algunas distribuciones Linux como Ubuntu instala las Core Fonts for the Web (Arial, Times New Roman, Courier New, etc.) en su versión del año 2002, pero **no incluye** las fuentes ClearType (Calibri, Cambria, etc.), ni Segoe UI, ni Aptos, ni ninguna fuente posterior a 2002. AlmaLinux y otras distros basadas en RHEL no tienen un equivalente directo en sus repositorios, lo que fuerza a buscar en repositorios de terceros. Por eso la extracción manual es necesaria.
 
@@ -673,6 +673,14 @@ Ejecutar `fc-cache -fv` y reiniciar la aplicación. Verificar con `fc-list | gre
 
 **Fuentes duplicadas (instaladas en dos ubicaciones):**
 No causa problemas. `fontconfig` identifica las fuentes por sus metadatos internos, no por la ruta ni el nombre del archivo. Si hay duplicados, simplemente usa una y la otra queda ignorada.
+
+![LibreOffice con la tipografía Aptos de Microsoft Office 2024. Ahora se ve correctamente.](../../assets/blog/tipografias-windows-en-linux/only-office-without-segoe-emoji.webp)
+
+_LibreOffice con la tipografía Aptos de Microsoft Office 2024. Ahora se ve correctamente._
+
+![OnlyOffice en un Ubuntu 24.04 que que si tiene tipografía Segoe UI Emoji. Los emojis funcionan aunque salen como monocromáticos](../../assets/blog/tipografias-windows-en-linux/only-office-without-segoe-emoji.webp)
+
+_OnlyOffice en un Ubuntu 24.04 que que si tiene tipografía Segoe UI Emoji. Los emojis funcionan aunque salen como monocromáticos ya que no puede leer la información de colores degradados_
 
 ---
 
