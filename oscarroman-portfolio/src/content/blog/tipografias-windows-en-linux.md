@@ -703,13 +703,17 @@ _LibreOffice con la tipografía Aptos de Microsoft Office 2024. Ahora se ve corr
 
 _OnlyOffice en un Ubuntu 24.04 que que si tiene tipografía Segoe UI Emoji. Los emojis funcionan aunque salen como monocromáticos ya que no puede leer la información de colores degradados._
 
-## Paso 8: Extra: Instalar las fuentes en Linux
+## Paso 8: Extra: Actualizar los Emojis de Windows 10 con el de Windows 11
 
-Word 2024 tiene soporte nativo total para el formato COLRv1, las secuencias ZWJ (el "pegamento" de los emojis) y el estándar Unicode más reciente. Por lo tanto, si actualizamos la tipografía Segoe UI Emoji, se verán con todos los colores y degradados.
+Word 2024 tiene soporte nativo total para el formato COLRv1, las secuencias ZWJ (el "pegamento" de los emojis) y el estándar Unicode más reciente. Por lo tanto, si actualizamos la tipografía Segoe UI Emoji, se verán con todos los colores y degradados.Sin embargo, en Windows 10, la versión de la tipografía es muy antiguo y no tiene soporte a las últimas versiones de Unicode, sus emojis se ven planos e incompletos.
+
+![Microsoft Word 2024 con texto con Emojis versión 14 y 15 en Windows 10.](../../assets/blog/tipografias-windows-en-linux/comparison-windows-11-windows-10-segoe-emoji-font.webp)
+
+_Microsoft Word 2024 con texto con Emojis versión 14 y 15 en Windows 10._
 
 A diferencia de Ubuntu, donde puedes simplemente copiar el archivo a la carpeta `~/.local/share/fonts`, Windows 10 considera a `seguiemj.ttf` como un archivo crítico del sistema. Si se intenta arrastrar la fuente de Windows 11 a la carpeta `C:\Windows\Fonts`, el sistema dirá que el archivo ya existe y no dejará sobrescribirlo, incluso si con privilegios de Administrador. Para reemplazarlo, se tendrá que quitarle la propiedad al sistema operativo usando la consola de comandos de Windows (CMD).
 
-Guarda tu archivo seguiemj.ttf (el de 12.4 MB de Windows 11) en una ruta accesible, por ejemplo, directamente en C:\
+Guarda tu archivo `seguiemj.ttf` (el de 12.4 MB de Windows 11) en una ruta accesible, por ejemplo, directamente en C:\
 
 Abre el Símbolo del sistema (CMD) como Administrador.
 
@@ -722,9 +726,9 @@ ren C:\Windows\Fonts\seguiemj.ttf seguiemj_viejo.ttf
 copy C:\seguiemj.ttf C:\Windows\Fonts\
 ```
 
-Nota: Si tu Windows 10 está en español, cambia administrators:F por administradores:F.
+Nota: Si tu Windows 10 está en español, cambia `administrators:F` por `administradores:F`.
 
-![Office 2024 con Windows 10 con la tipografía Segoe UI Emoji actualizada de Windows 11](../../assets/blog/tipografias-windows-en-linux/only-office-with-segoe-emoji.webp)
+![Office 2024 con Windows 10 con la tipografía Segoe UI Emoji actualizada de Windows 11](../../assets/blog/tipografias-windows-en-linux/Office2024-windows10-segoe-ui-emoji-updated.webp)
 
 _Office 2024 con Windows 10 con la tipografía Segoe UI Emoji actualizada de Windows 11._
 
