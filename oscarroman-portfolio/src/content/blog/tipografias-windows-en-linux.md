@@ -5,7 +5,7 @@ pubDate: "Mar 3 2026"
 heroImage: "../../assets/blog-placeholder-1.jpg"
 ---
 
-Las suites ofimáticas como LibreOffice, OnlyOffice y WPS Office necesitan las tipografías originales de Microsoft para mostrar correctamente documentos creados en Word, Excel y PowerPoint. Sin estas fuentes, el sistema usa sustituciones que alteran el formato, la paginación y la apariencia general de los documentos.
+Las suites ofimáticas en Linux como LibreOffice, OnlyOffice y WPS Office  necesitan las tipografías originales de Microsoft para mostrar correctamente documentos creados en Word, Excel y PowerPoint. Sin estas fuentes, el sistema usa sustituciones que alteran el formato, la paginación y la apariencia general de los documentos.
 
 Por citar algunos ejemplos, los textos con Emoji en OnlyOffice se ven mal si es que no se tiene la tipografía Segoe UI Emoji. Similar es el caso de la tipografía Aptos, el cual es reemplazada de manera temporal con tipografías que no son "muy compatibles". Además, muchos sitios web de Microsoft (Outlook Web, Teams, SharePoint) usan Segoe UI como fuente principal, y sin ella instalada se ven con tipografías genéricas y pixeladas.
 
@@ -31,7 +31,7 @@ Ello se muestra cuando intentas abrir el documento de control, que contiene los 
 
 Para evitar ese problema, Segoe UI Emoji también deberá ser actualizado en Windows 10, especialmente si utilizas Winapps para usar Office en Linux.
 
-![Microsoft Word 2024 con texto con Emojis versión 14 y 15 en Windows 10.](../../assets/blog/tipografias-windows-en-linux/comparison-windows-11-windows-10-segoe-emoji-font.webp)
+![Microsoft Word 2024 con texto con Emojis versión 14 y 15 en Windows 10.](../../assets/blog/tipografias-windows-en-linux/Office2024-windows10-new-emojis-support.webp)
 
 _Microsoft Word 2024 con texto con Emojis versión 14 y 15 en Windows 10._
 
@@ -659,7 +659,7 @@ killall soffice.bin 2>/dev/null
 | -------------- | ---------------------------------------------------------------------------------- |
 | LibreOffice    | Documentos .docx/.xlsx/.pptx se muestran con las fuentes correctas                 |
 | OnlyOffice     | Compatibilidad completa con documentos de Microsoft Office                         |
-| WPS Office     | Ya incluye algunas fuentes de Microsoft; las adicionales mejoran la compatibilidad |
+| WPS Office     | Ya incluye algunas fuentes de Microsoft; las adicionales mejoran la compatibilidad, aunque tiene problemas con Segoe UI Emoji |
 | Firefox/Chrome | Sitios de Microsoft (Outlook, Teams Web) se ven correctamente                      |
 | Inkscape/GIMP  | Las fuentes quedan disponibles para diseño gráfico                                 |
 
@@ -703,13 +703,13 @@ _LibreOffice con la tipografía Aptos de Microsoft Office 2024. Ahora se ve corr
 
 _OnlyOffice en un Ubuntu 24.04 que que si tiene tipografía Segoe UI Emoji. Los emojis funcionan aunque salen como monocromáticos ya que no puede leer la información de colores degradados._
 
-## Paso 8: Extra: Actualizar los Emojis de Windows 10 con el de Windows 11
+## Extra: Actualizar los Emojis de Windows 10 con el de Windows 11
 
-Word 2024 tiene soporte nativo total para el formato COLRv1, las secuencias ZWJ (el "pegamento" de los emojis) y el estándar Unicode más reciente. Por lo tanto, si actualizamos la tipografía Segoe UI Emoji, se verán con todos los colores y degradados.Sin embargo, en Windows 10, la versión de la tipografía es muy antiguo y no tiene soporte a las últimas versiones de Unicode, sus emojis se ven planos e incompletos.
+Word 2024 tiene soporte nativo total para el formato COLRv1, las secuencias ZWJ (el "pegamento" de los emojis) y el estándar Unicode más reciente. Por lo tanto, si actualizamos la tipografía Segoe UI Emoji, se verán con todos los colores y degradados. **Sin embargo, en Windows 10, la versión de la tipografía es muy antiguo y no tiene soporte a las últimas versiones de Unicode**, sus emojis se ven planos e incompletos. Si comparas ambas versiones, la de Windows 11 pesa 6 veces más que la de Windows 10.
 
-![Microsoft Word 2024 con texto con Emojis versión 14 y 15 en Windows 10.](../../assets/blog/tipografias-windows-en-linux/comparison-windows-11-windows-10-segoe-emoji-font.webp)
+![Diferencia del peso entre las tipografías de Segoe UI Emoji de Windows 10 y el de Windows 11](../../assets/blog/tipografias-windows-en-linux/comparison-windows-11-windows-10-segoe-emoji-font.webp)
 
-_Microsoft Word 2024 con texto con Emojis versión 14 y 15 en Windows 10._
+_Diferencia del peso entre las tipografías de Segoe UI Emoji de Windows 10 y el de Windows 11._
 
 A diferencia de Ubuntu, donde puedes simplemente copiar el archivo a la carpeta `~/.local/share/fonts`, Windows 10 considera a `seguiemj.ttf` como un archivo crítico del sistema. Si se intenta arrastrar la fuente de Windows 11 a la carpeta `C:\Windows\Fonts`, el sistema dirá que el archivo ya existe y no dejará sobrescribirlo, incluso si con privilegios de Administrador. Para reemplazarlo, se tendrá que quitarle la propiedad al sistema operativo usando la consola de comandos de Windows (CMD).
 
