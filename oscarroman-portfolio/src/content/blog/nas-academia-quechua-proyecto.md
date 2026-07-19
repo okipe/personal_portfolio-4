@@ -49,7 +49,7 @@ La restricción de partida era brutal y realista: **presupuesto cero**. Había q
 Sobre eso montamos TrueNAS Community Edition 25.10, un pool ZFS, tres aplicaciones (Navidrome para audio, Jellyfin para video, Nextcloud para documentos), snapshots automáticos, cifrado selectivo y acceso remoto por Tailscale.
 
 ```mermaid
-flowchart LR
+flowchart TD
     U["👥 Docentes<br/>Estudiantes<br/>Admin"] --> A["🌐 LAN · SMB<br/>Tailscale · WireGuard"]
     A --> APP["Navidrome · Jellyfin<br/>Nextcloud"]
     APP --> DS["Datasets ZFS<br/>audios · videos · materiales<br/>🔒 administrativo"]
